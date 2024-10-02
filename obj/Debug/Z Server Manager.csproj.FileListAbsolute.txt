@@ -1,0 +1,39 @@
+C:\Users\GAMER\source\repos\Z Server Manager\Z Server Manager\bin\Debug\Z Server Manager.exe.config
+C:\Users\GAMER\source\repos\Z Server Manager\Z Server Manager\bin\Debug\Z Server Manager.exe
+C:\Users\GAMER\source\repos\Z Server Manager\Z Server Manager\bin\Debug\Z Server Manager.pdb
+C:\Users\GAMER\source\repos\Z Server Manager\Z Server Manager\bin\Debug\Microsoft.Bcl.AsyncInterfaces.dll
+C:\Users\GAMER\source\repos\Z Server Manager\Z Server Manager\bin\Debug\Renci.SshNet.dll
+C:\Users\GAMER\source\repos\Z Server Manager\Z Server Manager\bin\Debug\System.Buffers.dll
+C:\Users\GAMER\source\repos\Z Server Manager\Z Server Manager\bin\Debug\System.IO.Pipelines.dll
+C:\Users\GAMER\source\repos\Z Server Manager\Z Server Manager\bin\Debug\System.Memory.dll
+C:\Users\GAMER\source\repos\Z Server Manager\Z Server Manager\bin\Debug\System.Numerics.Vectors.dll
+C:\Users\GAMER\source\repos\Z Server Manager\Z Server Manager\bin\Debug\System.Runtime.CompilerServices.Unsafe.dll
+C:\Users\GAMER\source\repos\Z Server Manager\Z Server Manager\bin\Debug\System.Text.Encodings.Web.dll
+C:\Users\GAMER\source\repos\Z Server Manager\Z Server Manager\bin\Debug\System.Text.Json.dll
+C:\Users\GAMER\source\repos\Z Server Manager\Z Server Manager\bin\Debug\System.Threading.Tasks.Extensions.dll
+C:\Users\GAMER\source\repos\Z Server Manager\Z Server Manager\bin\Debug\System.ValueTuple.dll
+C:\Users\GAMER\source\repos\Z Server Manager\Z Server Manager\bin\Debug\Microsoft.Bcl.AsyncInterfaces.xml
+C:\Users\GAMER\source\repos\Z Server Manager\Z Server Manager\bin\Debug\Renci.SshNet.xml
+C:\Users\GAMER\source\repos\Z Server Manager\Z Server Manager\bin\Debug\System.Buffers.xml
+C:\Users\GAMER\source\repos\Z Server Manager\Z Server Manager\bin\Debug\System.IO.Pipelines.xml
+C:\Users\GAMER\source\repos\Z Server Manager\Z Server Manager\bin\Debug\System.Memory.xml
+C:\Users\GAMER\source\repos\Z Server Manager\Z Server Manager\bin\Debug\System.Numerics.Vectors.xml
+C:\Users\GAMER\source\repos\Z Server Manager\Z Server Manager\bin\Debug\System.Runtime.CompilerServices.Unsafe.xml
+C:\Users\GAMER\source\repos\Z Server Manager\Z Server Manager\bin\Debug\System.Text.Encodings.Web.xml
+C:\Users\GAMER\source\repos\Z Server Manager\Z Server Manager\bin\Debug\System.Text.Json.xml
+C:\Users\GAMER\source\repos\Z Server Manager\Z Server Manager\bin\Debug\System.Threading.Tasks.Extensions.xml
+C:\Users\GAMER\source\repos\Z Server Manager\Z Server Manager\bin\Debug\System.ValueTuple.xml
+C:\Users\GAMER\source\repos\Z Server Manager\Z Server Manager\obj\Debug\Z Server Manager.csproj.AssemblyReference.cache
+C:\Users\GAMER\source\repos\Z Server Manager\Z Server Manager\obj\Debug\ListaServers.baml
+C:\Users\GAMER\source\repos\Z Server Manager\Z Server Manager\obj\Debug\MainWindow.baml
+C:\Users\GAMER\source\repos\Z Server Manager\Z Server Manager\obj\Debug\ListaServers.g.cs
+C:\Users\GAMER\source\repos\Z Server Manager\Z Server Manager\obj\Debug\MainWindow.g.cs
+C:\Users\GAMER\source\repos\Z Server Manager\Z Server Manager\obj\Debug\App.g.cs
+C:\Users\GAMER\source\repos\Z Server Manager\Z Server Manager\obj\Debug\Z Server Manager_MarkupCompile.cache
+C:\Users\GAMER\source\repos\Z Server Manager\Z Server Manager\obj\Debug\Z Server Manager.g.resources
+C:\Users\GAMER\source\repos\Z Server Manager\Z Server Manager\obj\Debug\Z_Server_Manager.Properties.Resources.resources
+C:\Users\GAMER\source\repos\Z Server Manager\Z Server Manager\obj\Debug\Z Server Manager.csproj.GenerateResource.cache
+C:\Users\GAMER\source\repos\Z Server Manager\Z Server Manager\obj\Debug\Z Server Manager.csproj.CoreCompileInputs.cache
+C:\Users\GAMER\source\repos\Z Server Manager\Z Server Manager\obj\Debug\Z Server.46379466.Up2Date
+C:\Users\GAMER\source\repos\Z Server Manager\Z Server Manager\obj\Debug\Z Server Manager.exe
+C:\Users\GAMER\source\repos\Z Server Manager\Z Server Manager\obj\Debug\Z Server Manager.pdb

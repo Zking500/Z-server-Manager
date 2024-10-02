@@ -1,0 +1,25 @@
+﻿<Window x:Class="Z_Server_Manager.ListaServers"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Server List" Height="500" Width="400">
+    <Grid>
+        <DockPanel>
+            <Button Content="Browse Servers" DockPanel.Dock="Top" Width="120" Height="40" Click="BrowseServersButton_Click" HorizontalAlignment="Center" Margin="10"/>
+
+            <ListView x:Name="ServerListView" Margin="10">
+                <ListView.View>
+                    <GridView>
+                        <GridViewColumn Width="50">
+                            <GridViewColumn.CellTemplate>
+                                <DataTemplate>
+                                    <Image Width="30" Height="30" Source="{Binding IconPath}" />
+                                </DataTemplate>
+                            </GridViewColumn.CellTemplate>
+                        </GridViewColumn>
+                        <GridViewColumn Header="Server Name" Width="250" DisplayMemberBinding="{Binding ServerName}" />
+                    </GridView>
+                </ListView.View>
+            </ListView>
+        </DockPanel>
+    </Grid>
+</Window>
