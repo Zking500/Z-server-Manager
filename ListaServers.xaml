@@ -6,16 +6,20 @@
         <DockPanel>
             <Button Content="Browse Servers" DockPanel.Dock="Top" Width="120" Height="40" Click="BrowseServersButton_Click" HorizontalAlignment="Center" Margin="10"/>
 
-            <ListView x:Name="ServerListView" Margin="10">
+            <ListView x:Name="ServerListView" Margin="10"
+                      SelectionChanged="ServerListView_SelectionChanged">
                 <ListView.View>
                     <GridView>
-                        <GridViewColumn Width="50">
+                        <!-- Columna de imagen con encabezado "Logo" -->
+                        <GridViewColumn Header="Logo" Width="50">
                             <GridViewColumn.CellTemplate>
                                 <DataTemplate>
                                     <Image Width="30" Height="30" Source="{Binding IconPath}" />
                                 </DataTemplate>
                             </GridViewColumn.CellTemplate>
                         </GridViewColumn>
+
+                        <!-- Columna del nombre del servidor -->
                         <GridViewColumn Header="Server Name" Width="250" DisplayMemberBinding="{Binding ServerName}" />
                     </GridView>
                 </ListView.View>
