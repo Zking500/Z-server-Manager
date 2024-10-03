@@ -4,10 +4,8 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Text.Json;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Media.Imaging;
 using static Z_Server_Manager.MainWindow;
 
 namespace Z_Server_Manager
@@ -16,8 +14,7 @@ namespace Z_Server_Manager
     {
         private string _currentDirectory = "/home/"; // Directorio inicial
         private SshClient _sshClient;
-        private string _baseDirectory = string.Empty;
-        private Dictionary<string, BitmapImage> _iconCache = new Dictionary<string, BitmapImage>(); // Caché para iconos
+        private bool _isServerSelected = false; // Variable para controlar la selección de servidor
 
         public ListaServers()
         {
@@ -25,12 +22,21 @@ namespace Z_Server_Manager
             LoadServers(_currentDirectory);
         }
 
-        private void BrowseServersButton_Click(object sender, RoutedEventArgs e)
+        private void SeleccionarServerButton_Click(object sender, RoutedEventArgs e)
         {
-            // Implement your logic to browse to the specific directory
+            // Al hacer clic en el botón, cambia la variable a true o false
+            _isServerSelected = !_isServerSelected; // Alterna el valor
+            if (_isServerSelected)
+            {
+                MessageBox.Show("Modo de selección activado. El siguiente servidor que selecciones se guardará.");
+            }
+            else
+            {
+                MessageBox.Show("Modo de selección desactivado. Puedes seguir navegando.");
+            }
         }
 
-        private async void LoadServers(string directory)
+        private void LoadServers(string directory)
         {
             // Cargar credenciales desde el archivo
             Credentials credentials = null;
@@ -73,8 +79,7 @@ namespace Z_Server_Manager
                     {
                         serverList.Add(new ServerItem
                         {
-                            ServerName = "..",
-                            IconPath = null
+                            ServerName = ".."
                         });
                     }
 
@@ -84,16 +89,12 @@ namespace Z_Server_Manager
                         var trimmedServerName = serverName.TrimEnd('/');
                         serverList.Add(new ServerItem
                         {
-                            ServerName = trimmedServerName,
-                            IconPath = null // Iconos se cargan asíncronamente más tarde
+                            ServerName = trimmedServerName
                         });
                     }
 
                     // Actualiza el ListView con los servidores encontrados
                     ServerListView.ItemsSource = serverList;
-
-                    // Cargar iconos asíncronamente
-                    await LoadServerIconsAsync(sftpClient, serverList, directory);
                 }
             }
             catch (SshOperationTimeoutException ex)
@@ -106,53 +107,6 @@ namespace Z_Server_Manager
             }
         }
 
-        private async Task LoadServerIconsAsync(SftpClient sftpClient, List<ServerItem> serverList, string directory)
-        {
-            foreach (var serverItem in serverList)
-            {
-                if (serverItem.ServerName == "..") continue; // No descargar icono para el ítem "retroceder"
-
-                var remoteIconPath = Path.Combine(directory, serverItem.ServerName, "server-icon.png");
-
-                if (_iconCache.ContainsKey(serverItem.ServerName))
-                {
-                    // Usar el icono almacenado en caché
-                    serverItem.IconPath = _iconCache[serverItem.ServerName];
-                    continue;
-                }
-
-                try
-                {
-                    if (sftpClient.Exists(remoteIconPath))
-                    {
-                        string localIconPath = Path.Combine(Path.GetTempPath(), $"{serverItem.ServerName}-server-icon.png");
-
-                        // Descargar el icono de manera asíncrona
-                        await Task.Run(() =>
-                        {
-                            using (var fileStream = new FileStream(localIconPath, FileMode.Create))
-                            {
-                                sftpClient.DownloadFile(remoteIconPath, fileStream);
-                            }
-                        });
-
-                        var image = new BitmapImage(new Uri(localIconPath));
-                        _iconCache[serverItem.ServerName] = image;
-
-                        // Asignar el icono en la interfaz gráfica
-                        Dispatcher.Invoke(() =>
-                        {
-                            serverItem.IconPath = image;
-                        });
-                    }
-                }
-                catch (Exception ex)
-                {
-                    MessageBox.Show($"Error al cargar el icono del servidor {serverItem.ServerName}: {ex.Message}");
-                }
-            }
-        }
-
         private void ServerListView_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             if (ServerListView.SelectedItem is ServerItem selectedServer)
@@ -160,17 +114,28 @@ namespace Z_Server_Manager
                 // Cambia al directorio seleccionado
                 _currentDirectory = Path.Combine(_currentDirectory, selectedServer.ServerName) + "/";
 
-                // Si el servidor tiene icono, abre otra ventana (por ahora con mensaje de construcción)
-                if (selectedServer.IconPath != null)
+                // Si el servidor está seleccionado, guarda su dirección
+                if (_isServerSelected && selectedServer.ServerName != "..")
                 {
-                    // Aquí puedes abrir una nueva ventana (que todavía no has programado)
-                    MessageBox.Show("Esta sección está en construcción.");
-                    return;
+                    SaveSelectedServer(_currentDirectory);
+                    MessageBox.Show("Servidor seleccionado: " + _currentDirectory);
+                    // Aquí puedes abrir la nueva ventana "ServidorControler"
+                    // new ServidorControler().Show();
+                    this.Close(); // Cierra la ventana actual
                 }
-
-                // Vuelve a cargar el nuevo directorio
-                LoadServers(_currentDirectory);
+                else
+                {
+                    // Vuelve a cargar el nuevo directorio
+                    LoadServers(_currentDirectory);
+                }
             }
+        }
+
+        private void SaveSelectedServer(string selectedDirectory)
+        {
+            var serverAddress = new { Directory = selectedDirectory };
+            var json = JsonSerializer.Serialize(serverAddress);
+            File.WriteAllText("DireccionServer.json", json);
         }
 
         private void BackButton_Click(object sender, RoutedEventArgs e)
@@ -187,7 +152,6 @@ namespace Z_Server_Manager
         public class ServerItem
         {
             public string ServerName { get; set; }
-            public BitmapImage IconPath { get; set; }
         }
     }
 }

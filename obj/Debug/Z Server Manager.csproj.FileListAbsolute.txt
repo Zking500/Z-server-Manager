@@ -37,3 +37,5 @@ C:\Users\GAMER\source\repos\Z Server Manager\Z Server Manager\obj\Debug\Z Server
 C:\Users\GAMER\source\repos\Z Server Manager\Z Server Manager\obj\Debug\Z Server.46379466.Up2Date
 C:\Users\GAMER\source\repos\Z Server Manager\Z Server Manager\obj\Debug\Z Server Manager.exe
 C:\Users\GAMER\source\repos\Z Server Manager\Z Server Manager\obj\Debug\Z Server Manager.pdb
+C:\Users\GAMER\source\repos\Z Server Manager\Z Server Manager\obj\Debug\ServidorControler.baml
+C:\Users\GAMER\source\repos\Z Server Manager\Z Server Manager\obj\Debug\ServidorControler.g.cs
