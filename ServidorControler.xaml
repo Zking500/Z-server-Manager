@@ -5,9 +5,10 @@
     <Grid>
         <!-- Terminal del servidor -->
         <TextBox Name="TerminalOutput" Height="150" VerticalAlignment="Top" Margin="10" IsReadOnly="True" TextWrapping="Wrap" AcceptsReturn="True"/>
-
+        
         <!-- Uso de CPU y RAM -->
         <StackPanel Orientation="Vertical" VerticalAlignment="Bottom" Margin="10">
+            <Button Content="Encender Server" DockPanel.Dock="Top" Width="150" Height="40" Click="StartMinecraftServer" HorizontalAlignment="Center" Margin="10"/>
             <TextBlock Name="CpuUsageText" Text="CPU Usage: --" Margin="5"/>
             <TextBlock Name="RamUsageText" Text="RAM Usage: --" Margin="5"/>
         </StackPanel>

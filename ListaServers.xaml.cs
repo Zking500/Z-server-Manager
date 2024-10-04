@@ -119,8 +119,8 @@ namespace Z_Server_Manager
                 {
                     SaveSelectedServer(_currentDirectory);
                     MessageBox.Show("Servidor seleccionado: " + _currentDirectory);
-                    // Aquí puedes abrir la nueva ventana "ServidorControler"
-                    // new ServidorControler().Show();
+                    ServidorControler ServidorControler = new ServidorControler();
+                    ServidorControler.Show();
                     this.Close(); // Cierra la ventana actual
                 }
                 else
@@ -136,7 +136,9 @@ namespace Z_Server_Manager
             var serverAddress = new { Directory = selectedDirectory };
             var json = JsonSerializer.Serialize(serverAddress);
             File.WriteAllText("DireccionServer.json", json);
+
         }
+
 
         private void BackButton_Click(object sender, RoutedEventArgs e)
         {
